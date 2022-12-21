@@ -1,0 +1,11 @@
+*.rs        eol=lf
+*.c         eol=lf
+*.h         eol=lf
+*.txt       eol=lf
+*.s         eol=lf
+*.ld        eol=lf
+*.py        eol=lf
+*.dsg       eol=lf
+_SConscript eol=lf
+SConstruct  eol=lf
+*.json      eol=lf
