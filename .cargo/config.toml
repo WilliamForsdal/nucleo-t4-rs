@@ -1,2 +1,14 @@
 [build]
 target = "thumbv6m-none-eabi"
+
+
+[target.thumbv6m-none-eabi]
+# runner = "probe-run --chip STM32G071RBT"
+# runner = "arm-none-eabi-gdb -q"
+runner = "ST-LINK_CLI.exe -c UR -P ./target/thumbv6m-none-eabi/release/t4-rs -V -Rst"
+
+rustflags = [
+#   "-C", "linker=arm-none-eabi-ld",
+  "-C", "link-arg=-Tlink.x",
+#   "-o", "t4.elf"
+]

@@ -1,0 +1,32 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "cargo",
+			"command": "build",
+			"problemMatcher": [
+				"$rustc"
+			],
+			"group": "build",
+			"label": "rust: cargo build",
+		},
+		{
+			"type": "shell",
+			"command": "arm-none-eabi-objcopy -I elf32-littlearm -O srec ./target/thumbv6m-none-eabi/release/${workspaceFolderBasename} ./target/thumbv6m-none-eabi/release/${workspaceFolderBasename}.srec",
+			"problemMatcher": [],
+			"group": "build",
+			"label": "elf -> srec",
+		},
+		{
+			"type": "shell",
+			"dependsOn": [
+				"rust: cargo build",
+				"elf -> srec"
+			],
+			"command": "ST-LINK_CLI.exe -c UR -P ./target/thumbv6m-none-eabi/release/${workspaceFolderBasename}.srec -V -Rst",
+			"problemMatcher": [],
+			"group": "build",
+			"label": "flash",
+		},
+	]
+}
