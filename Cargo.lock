@@ -155,6 +155,7 @@ dependencies = [
 name = "t4-rs"
 version = "0.1.0"
 dependencies = [
+ "cortex-m",
  "cortex-m-rt",
  "panic-halt",
  "stm32g0",
